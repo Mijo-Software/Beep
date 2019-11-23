@@ -1,22 +1,25 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace Beep
 {
-  static class Program
-  {
-    /// <summary>
-    /// Der Haupteinstiegspunkt für die Anwendung.
-    /// </summary>
-    [STAThread]
-    static void Main()
-    {
-      Application.EnableVisualStyles();
-      Application.SetCompatibleTextRenderingDefault(false);
-      Application.Run(new BeepForm());
-    }
-  }
+	/// <summary>
+	/// Program class
+	/// </summary>
+	internal static class Program
+	{
+		/// <summary>
+		/// Main entrance point of the application
+		/// </summary>
+		[STAThread]
+		private static void Main()
+		{
+			Application.EnableVisualStyles();
+			Application.SetCompatibleTextRenderingDefault(defaultValue: false);
+			using (BeepForm mainForm = new BeepForm())
+			{
+				Application.Run(mainForm: mainForm);
+			}			
+		}
+	}
 }
