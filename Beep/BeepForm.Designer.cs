@@ -31,6 +31,7 @@
     /// </summary>
     private void InitializeComponent()
     {
+			this.components = new System.ComponentModel.Container();
 			this.buttonBeep = new System.Windows.Forms.Button();
 			this.labelFrequency = new System.Windows.Forms.Label();
 			this.labelDuration = new System.Windows.Forms.Label();
@@ -38,6 +39,7 @@
 			this.trackBarFrequency = new System.Windows.Forms.TrackBar();
 			this.trackBarDuration = new System.Windows.Forms.TrackBar();
 			this.trackBarVolume = new System.Windows.Forms.TrackBar();
+			this.toolTip = new System.Windows.Forms.ToolTip(this.components);
 			((System.ComponentModel.ISupportInitialize)(this.trackBarFrequency)).BeginInit();
 			((System.ComponentModel.ISupportInitialize)(this.trackBarDuration)).BeginInit();
 			((System.ComponentModel.ISupportInitialize)(this.trackBarVolume)).BeginInit();
@@ -51,7 +53,8 @@
 			this.buttonBeep.Name = "buttonBeep";
 			this.buttonBeep.Size = new System.Drawing.Size(464, 83);
 			this.buttonBeep.TabIndex = 6;
-			this.buttonBeep.Text = "Beep";
+			this.buttonBeep.Text = "&Beep";
+			this.toolTip.SetToolTip(this.buttonBeep, "Click to play the beep");
 			this.buttonBeep.UseVisualStyleBackColor = true;
 			this.buttonBeep.Click += new System.EventHandler(this.ButtonBeep_Click);
 			// 
@@ -59,31 +62,34 @@
 			// 
 			this.labelFrequency.AccessibleRole = System.Windows.Forms.AccessibleRole.StaticText;
 			this.labelFrequency.AutoSize = true;
+			this.labelFrequency.BackColor = System.Drawing.Color.Transparent;
 			this.labelFrequency.Location = new System.Drawing.Point(12, 27);
 			this.labelFrequency.Name = "labelFrequency";
 			this.labelFrequency.Size = new System.Drawing.Size(82, 13);
 			this.labelFrequency.TabIndex = 0;
-			this.labelFrequency.Text = "frequency in hz:";
+			this.labelFrequency.Text = "&frequency in hz:";
 			// 
 			// labelDuration
 			// 
 			this.labelDuration.AccessibleRole = System.Windows.Forms.AccessibleRole.StaticText;
 			this.labelDuration.AutoSize = true;
+			this.labelDuration.BackColor = System.Drawing.Color.Transparent;
 			this.labelDuration.Location = new System.Drawing.Point(12, 76);
 			this.labelDuration.Name = "labelDuration";
 			this.labelDuration.Size = new System.Drawing.Size(75, 13);
 			this.labelDuration.TabIndex = 2;
-			this.labelDuration.Text = "duration in ms:";
+			this.labelDuration.Text = "&duration in ms:";
 			// 
 			// labelVolume
 			// 
 			this.labelVolume.AccessibleRole = System.Windows.Forms.AccessibleRole.StaticText;
 			this.labelVolume.AutoSize = true;
+			this.labelVolume.BackColor = System.Drawing.Color.Transparent;
 			this.labelVolume.Location = new System.Drawing.Point(12, 127);
 			this.labelVolume.Name = "labelVolume";
-			this.labelVolume.Size = new System.Drawing.Size(41, 13);
+			this.labelVolume.Size = new System.Drawing.Size(63, 13);
 			this.labelVolume.TabIndex = 4;
-			this.labelVolume.Text = "volume";
+			this.labelVolume.Text = "&volume in %";
 			// 
 			// trackBarFrequency
 			// 
@@ -95,6 +101,7 @@
 			this.trackBarFrequency.Size = new System.Drawing.Size(385, 45);
 			this.trackBarFrequency.TabIndex = 1;
 			this.trackBarFrequency.TickStyle = System.Windows.Forms.TickStyle.Both;
+			this.toolTip.SetToolTip(this.trackBarFrequency, "Shift to set the frequency in hz");
 			this.trackBarFrequency.Value = 2400;
 			this.trackBarFrequency.Scroll += new System.EventHandler(this.ChangeBeepText_Scroll);
 			// 
@@ -108,6 +115,7 @@
 			this.trackBarDuration.Size = new System.Drawing.Size(385, 45);
 			this.trackBarDuration.TabIndex = 3;
 			this.trackBarDuration.TickStyle = System.Windows.Forms.TickStyle.Both;
+			this.toolTip.SetToolTip(this.trackBarDuration, "Shift to set the duration in ms");
 			this.trackBarDuration.Value = 100;
 			this.trackBarDuration.Scroll += new System.EventHandler(this.ChangeBeepText_Scroll);
 			// 
@@ -116,12 +124,13 @@
 			this.trackBarVolume.AccessibleRole = System.Windows.Forms.AccessibleRole.Slider;
 			this.trackBarVolume.LargeChange = 1;
 			this.trackBarVolume.Location = new System.Drawing.Point(100, 114);
-			this.trackBarVolume.Maximum = 32767;
+			this.trackBarVolume.Maximum = 200;
 			this.trackBarVolume.Name = "trackBarVolume";
 			this.trackBarVolume.Size = new System.Drawing.Size(385, 45);
 			this.trackBarVolume.TabIndex = 5;
 			this.trackBarVolume.TickStyle = System.Windows.Forms.TickStyle.Both;
-			this.trackBarVolume.Value = 16384;
+			this.toolTip.SetToolTip(this.trackBarVolume, "Shift to set the volume in %");
+			this.trackBarVolume.Value = 100;
 			this.trackBarVolume.Scroll += new System.EventHandler(this.ChangeBeepText_Scroll);
 			// 
 			// BeepForm
@@ -137,7 +146,7 @@
 			this.Controls.Add(this.labelDuration);
 			this.Controls.Add(this.labelFrequency);
 			this.Controls.Add(this.buttonBeep);
-			this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D;
+			this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
 			this.MaximizeBox = false;
 			this.Name = "BeepForm";
 			this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
@@ -160,6 +169,7 @@
     private System.Windows.Forms.TrackBar trackBarFrequency;
     private System.Windows.Forms.TrackBar trackBarDuration;
     private System.Windows.Forms.TrackBar trackBarVolume;
-  }
+		private System.Windows.Forms.ToolTip toolTip;
+	}
 }
 
