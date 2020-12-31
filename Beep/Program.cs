@@ -16,8 +16,7 @@ namespace Beep
 		{
 			Application.EnableVisualStyles();
 			Application.SetCompatibleTextRenderingDefault(defaultValue: false);
-			using BeepForm mainForm = new BeepForm();
-			Application.Run(mainForm: mainForm);
+			Application.Run(mainForm: new BeepForm());
 		}
 	}
 }
